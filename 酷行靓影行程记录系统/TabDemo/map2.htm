@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{height:300px;width:100%;}
+		#r-result{width:100%; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=PdZNZIZX7WbZiwsP9ApbquRh"></script>
+	<title>行程加载</title>
+  </head>
+  
+  <body>
+    <!--百度地图容器-->
+    <div style="width:730px;height:500px;border:#ccc solid 0px;font-size:12px" id="map"></div>    
+  </body>
+  <script type="text/javascript">
+      var mypoint = new Array()
+      mypoint[0] = new BMap.Point("", "")
+      mypoint[1] = new BMap.Point("", "")
+      mypoint[2] = new BMap.Point("", "")
+      mypoint[3] = new BMap.Point("", "")
+      mypoint[4] = new BMap.Point("", "")
+      mypoint[5] = new BMap.Point("", "")
+      mypoint[6] = new BMap.Point("", "")
+      mypoint[7] = new BMap.Point("", "")
+      mypoint[8] = new BMap.Point("", "")
+      mypoint[9] = new BMap.Point("", "")
+      mypoint[10] = new BMap.Point("", "")
+      mypoint[11] = new BMap.Point("", "")
+      mypoint[12] = new BMap.Point("", "")
+      mypoint[13] = new BMap.Point("", "")
+      mypoint[14] = new BMap.Point("", "")
+      mypoint[15] = new BMap.Point("", "")
+      mypoint[16] = new BMap.Point("", "")
+      mypoint[17] = new BMap.Point("", "")
+      mypoint[18] = new BMap.Point("", "")
+      mypoint[19] = new BMap.Point("", "")
+
+      for (i = 0; i < mypoint.length; i++) {
+          document.write(mypoint[i] + "<br />")
+      }
+
+
+      //创建和初始化地图函数：
+      function initMap() {
+          createMap(); //创建地图
+          setMapEvent(); //设置地图事件
+          addMapControl(); //向地图添加控件
+          addMapOverlay(); //向地图添加覆盖物
+      }
+      function createMap() {
+          map = new BMap.Map("map");
+          map.centerAndZoom(new BMap.Point(106.3026970000,29.6015240000),16);
+      }
+      function setMapEvent() {
+          map.enableScrollWheelZoom();
+          map.enableKeyboard();
+          map.enableDragging();
+          map.enableDoubleClickZoom()
+      }
+      function addClickHandler(target, window) {
+          target.addEventListener("click", function () {
+              target.openInfoWindow(window);
+          });
+      }
+      function addMapOverlay() {
+      }
+      //向地图添加控件
+      function addMapControl() {
+          var scaleControl = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+          scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+          map.addControl(scaleControl);
+          var navControl = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+          map.addControl(navControl);
+          var overviewControl = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: true });
+          map.addControl(overviewControl);
+      }
+      function justmarkfun(JD, WD, INTPoint) {
+          mypoint[INTPoint] = new BMap.Point(JD, WD);
+          var marker1 = new BMap.Marker(mypoint[INTPoint]);  // 创建标注
+          window.map.addOverlay(marker1);              // 将标注添加到地图中
+          map.panTo(mypoint[INTPoint]);
+          marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+      }
+
+      var map;
+      initMap();
+      function drivecar(INT) {
+          var driving = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true} });
+          driving.search(mypoint[0], mypoint[INT-1], { waypoints: [mypoint[1],mypoint[2]]}); //waypoints表示途经点
+      }
+
+
+  </script>
+</html>

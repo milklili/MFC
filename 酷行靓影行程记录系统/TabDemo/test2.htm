@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		#r-result{width:100%;margin-top:5px;}
+		p{margin:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9BzncXaTglPeAHWaA9KvOvUt"></script>
+	<title>添加/删除工具条、比例尺控件、城市名定位</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<div id="r-result">
+	城市名: <input id="cityName" type="text" style="width:100px; margin-right:10px;" />
+		   <input type="button" value="查询" onclick="theLocation()" />
+		<input type="button" onclick="add_control();" value="添加比例尺" />
+		<input type="button" onclick="delete_control();" value="删除比例尺" />
+
+	</div>
+	<p>  </p>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    //map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    map.centerAndZoom("重庆", 12);
+   
+    function justmarkfun(JD, WD) {
+        var marker1 = new BMap.Marker(new BMap.Point(JD, WD));  // 创建标注
+        window.map.addOverlay(marker1); // 将标注添加到地图中
+        //alert(JD + "," + WD);            
+    }
+</script>
+.
