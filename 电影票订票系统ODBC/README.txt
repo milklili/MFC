@@ -1,0 +1,3 @@
+CinemaBooking是客户端的订票系统
+cinemaODBC是管理员端的系统
+CinemaTicket是数据库文件，导入到自己本地的sql sever中即可正常使用。

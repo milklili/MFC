@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cinemaODBC", "cinemaODBC\cinemaODBC.vcxproj", "{DBD7B927-FC32-4ECF-8BA0-B1E08EDF5F10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBD7B927-FC32-4ECF-8BA0-B1E08EDF5F10}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DBD7B927-FC32-4ECF-8BA0-B1E08EDF5F10}.Debug|Win32.Build.0 = Debug|Win32
+		{DBD7B927-FC32-4ECF-8BA0-B1E08EDF5F10}.Release|Win32.ActiveCfg = Release|Win32
+		{DBD7B927-FC32-4ECF-8BA0-B1E08EDF5F10}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
